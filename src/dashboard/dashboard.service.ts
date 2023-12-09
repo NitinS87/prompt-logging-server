@@ -29,6 +29,8 @@ export class DashboardService {
     // console.log(dataQuery);
 
     const aggregateQuery = `SELECT
+                        SUM(prompt_tokens) as totalInputTokens,
+                        SUM(completion_tokens) as totalOutputTokens,
                         COUNT(*) AS numberOfRequests,
                         AVG(latency) AS averageLatency,
                         quantileExact(0.95)(latency) AS p95Latency,
