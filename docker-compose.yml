@@ -1,0 +1,12 @@
+# create a docker compose file which runs clickhouse and the clickhouse client on 9000 port
+version: '3'
+services:
+  clickhouse:
+    image: yandex/clickhouse-server
+    ports:
+      - '9000:9000'
+      - '8123:8123'
+  clickhouse-client:
+    image: yandex/clickhouse-client
+    links:
+      - clickhouse
