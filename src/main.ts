@@ -11,6 +11,8 @@ async function bootstrap() {
       transform: true, // transform the data to the type specified in the DTO
     }),
   );
+
+  app.enableCors();
   await app.listen(8000);
 }
 bootstrap();

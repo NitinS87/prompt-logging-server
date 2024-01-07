@@ -17,6 +17,7 @@ export class ChatService {
     const completion = await this.openai.chat.completions.create({
       model: process.env.OPENAI_DEFAULT_MODEL,
       messages: dto.messages,
+      stream: true,
     });
 
     return completion;

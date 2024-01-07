@@ -1,4 +1,4 @@
-import { IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ChatCompletionMessageParam } from 'openai/resources';
 
 export class ChatDTO {
@@ -6,6 +6,8 @@ export class ChatDTO {
   @IsString()
   user: string;
 
+  // Can be empty if the default is set in the config
+  @IsOptional()
   @IsString()
   apiKey: string;
 
