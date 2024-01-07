@@ -10,3 +10,9 @@ services:
     image: yandex/clickhouse-client
     links:
       - clickhouse
+  backend:
+    build: .
+    ports:
+      - '8000:8000'
+    depends_on:
+      - clickhouse
